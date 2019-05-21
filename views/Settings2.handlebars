@@ -1,0 +1,36 @@
+{{>adminPage}}
+
+<h1>Settings</h1>
+
+<form action = "processSettings" method ="POST">
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect1"> Select Sort</label>
+        <select class="form-control" id="exampleFormControlSelect1" name = "sort">
+            <option value="" hidden>Select your sorting style</option>
+            <option>Newest to oldest</option>
+            <option>Oldest to newest</option>
+
+        </select>
+
+
+
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect1"> Select the color of the messages</label>
+        <select class="form-control" id="exampleFormControlSelect1" name = "color">
+
+            <option>black</option>
+            <option>seagreen</option>
+            <option>orangered</option>
+            <option>steelblue</option>
+            <option>brown</option>
+            <option>yellow</option>
+
+        </select>
+        <br>
+        <button type="submit" class="settingsbtn">Apply changes</button>
+    </div>
+
+</form>

@@ -1,0 +1,210 @@
+{{>adminPage}}
+
+
+
+{{#section 'style'}}
+    <style>
+
+        .chat
+        {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .chat li
+        {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #B3A9A9;
+            font-size: 16px;
+        }
+        .chat li.left .chat-body
+        {
+            margin-left: 60px;
+        }
+        .chat li.right .chat-body
+        {
+            margin-right: 60px;
+        }
+
+        .chat li .chat-body p
+        {
+            margin: 0;
+            color: #777777;
+        }
+        .panel .slidedown .glyphicon, .chat .glyphicon
+        {
+            margin-right: 5px;
+        }
+        .body-panel
+        {
+            overflow-y: scroll;
+            height: 510px;
+
+        }
+        ::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+        ::-webkit-scrollbar
+        {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+        ::-webkit-scrollbar-thumb
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
+        }
+
+        .container {
+            width: 1500px;
+
+
+
+        }
+
+        button {
+            /* background-color: darkgray;*/
+            border: none;
+            /* color: white;*/
+            padding: 3px 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #dateandtime {
+            font-size: 9px;
+        }
+        a:not([href]):not([tabindex]) {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+
+{{/section}}
+
+<div class="container">
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-8 col-lg-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span> Your Posts
+                    <div class="btn-group pull-right">
+
+                    </div>
+                </div>
+                <div class="panel-body body-panel">
+                    <ul class="chat">
+                        {{#each users}}
+                            <!--<button type = "submit" name = "delete" class ="pull-left delete-message"><i class="fa fa-trash"></i></button><li>: <br> <span id = "dateandtime"></span> </li>-->
+                            {{#unless admin}}
+                           <a class = "btn btn-primary " data-id="{{id}}" >Delete</a><a class = "btn btn-warning" data-id="{{id}}" >Disable</a><a class = "btn btn-success" data-id="{{id}}" >Enable</a> <li>{{uname}}</li>
+                            {{/unless}}
+
+                           <!-- <a class = "btn btn-primary" data-id="{{id}}" >Delete</a><li>{{uname}}: {{msg}} <br> <span id = "dateandtime">{{DateAndTime}}</span> </li>-->
+
+                        {{/each}}
+
+
+
+
+
+
+                    </ul>
+                </div>
+                <div class="panel-footer clearfix">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#section 'javascript'}}
+
+    <script>
+
+
+        $(document).ready(function() {
+            $('.btn-primary').on('click', function (e) {
+
+                $target = $(e.target);
+                var id = $target.attr('data-id');
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/user/' + id,
+                    success: function (res) {
+                        // alert('delete');
+                        //res.send(200);
+                        window.location.href = '/users';
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+
+
+                })
+
+                console.log('delete button was pressed ' + id);
+            })
+
+
+            $('.btn-warning').click(function(e) {
+
+                $target = $(e.target);
+                var id = $target.attr('data-id');
+
+                $.ajax({
+                    type: 'PUT',
+                    url: '/disable/'+id,
+                    success: function(res){
+                        console.log("disable button is pressed")
+                        //alert($('.btn-warning').text());
+                        window.location.href = '/users';
+
+                    },
+
+                    error: function(err) {
+                        console.log(err);
+                    },
+
+
+                })
+
+            })
+
+            $('.btn-success').click(function(e) {
+
+                $target = $(e.target);
+                var id = $target.attr('data-id');
+
+                $.ajax({
+                    type: 'PUT',
+                    url: '/enable/'+id,
+                    success: function(res){
+                        console.log("disable button is pressed")
+                        //alert($('.btn-warning').text());
+                        window.location.href = '/users';
+
+                    },
+
+                    error: function(err) {
+                        console.log(err);
+                    },
+
+
+                })
+
+            })
+
+
+
+
+
+        });
+    </script>
+{{/section}}
