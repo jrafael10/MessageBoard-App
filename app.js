@@ -36,7 +36,7 @@ credentials.mongo.development.password + '@' +
 credentials.mongo.development.hosts + '/' +
 credentials.mongo.development.database +
 credentials.mongo.development.options;       */
-mongoose.connect(connectionString);
+mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || connectionString);
 
 
 
