@@ -4,6 +4,7 @@
   "description": "Final Project for ACS-3909 MessageBoard-App Final Project for ACS-3909",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jesse Rafael Dizon",
@@ -13,6 +14,9 @@
     "express-handlebars": "^3.0.0",
     "mongoose": "^5.0.9"
   },
+  "engines":  {
+    "node": "10.x"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
@@ -21,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/jrafael10/MessageBoard-App/issues"
   },
-  "homepage": "https://github.com/jrafael10/MessageBoard-App#readme"
+  "homepage": "https://github.com/jrafael10/MessageBoard-App#readme",
+
 }
