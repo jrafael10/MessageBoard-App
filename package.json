@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Final Project for ACS-3909 MessageBoard-App Final Project for ACS-3909",
   "main": "app.js",
-  "scripts": {
+  "script": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "author": "Jesse Rafael Dizon",
   "license": "ISC",
