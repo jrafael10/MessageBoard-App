@@ -4,7 +4,7 @@
   "description": "Final Project for ACS-3909 MessageBoard-App Final Project for ACS-3909",
   "main": "app.js",
   "script": {
-    "start": "node app.js",
+    "start": "node app.js"
 
   },
   "author": "Jesse Rafael Dizon",
