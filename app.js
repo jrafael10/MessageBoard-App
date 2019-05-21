@@ -29,7 +29,8 @@ credentials = require('./credentials'),
     //seedAccount= require('./models/adminSeed.js');
 var app = express();
 
-var connectionString = /*'mongodb://127.0.0.1:20061/a3'*/  'mongodb://127.0.0.1:27017';  //'mongodb://127.0.0.1:20061/a3';  'mongodb://127.0.0.1:27017';
+var connectionString = 'mongodb://jesserafael:mongo_lab101@ds157677.mlab.com:57677/heroku_4jvlh557';
+// /*'mongodb://127.0.0.1:20061/a3'*/  /*'mongodb://127.0.0.1:27017';*/  //'mongodb://127.0.0.1:20061/a3';  'mongodb://127.0.0.1:27017';
 /*
 credentials.mongo.development.username + ':' +
 credentials.mongo.development.password + '@' +
