@@ -3,8 +3,7 @@ live demo: https://messageboard-app.herokuapp.com
 
 
 Final Project for ACS-3909
-MessageBoard-App
-Final Project for ACS-3909
+
 
 This is a web application that allows users to post messages to a common message board. The web application satisfies the following requirements.
 
